@@ -1,0 +1,12 @@
+.container {
+  max-width: 100%;
+  height: 100vh;
+  padding-inline: 10px;
+  padding-block: 1rem;
+  background-color: #f1dda9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
