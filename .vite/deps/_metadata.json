@@ -2,7 +2,81 @@
   "hash": "153b185f",
   "configHash": "cc18ff9f",
   "lockfileHash": "cc320883",
-  "browserHash": "a0190f0b",
-  "optimized": {},
-  "chunks": {}
+  "browserHash": "2b05749a",
+  "optimized": {
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "65d18219",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "520018bc",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "7e9dae88",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.mjs",
+      "file": "react-router-dom.js",
+      "fileHash": "f006d40c",
+      "needsInterop": false
+    },
+    "motion/react": {
+      "src": "../../node_modules/motion/dist/es/react.mjs",
+      "file": "motion_react.js",
+      "fileHash": "9eb4f229",
+      "needsInterop": false
+    },
+    "react-router": {
+      "src": "../../node_modules/react-router/dist/development/index.mjs",
+      "file": "react-router.js",
+      "fileHash": "aecbefa2",
+      "needsInterop": false
+    },
+    "@iconify/react/dist/iconify.js": {
+      "src": "../../node_modules/@iconify/react/dist/iconify.js",
+      "file": "@iconify_react_dist_iconify__js.js",
+      "fileHash": "92ba1836",
+      "needsInterop": false
+    },
+    "@iconify-icons/fa-solid/hamburger": {
+      "src": "../../node_modules/@iconify-icons/fa-solid/hamburger.js",
+      "file": "@iconify-icons_fa-solid_hamburger.js",
+      "fileHash": "5b8da30a",
+      "needsInterop": false
+    },
+    "@iconify-icons/fa-solid/plus": {
+      "src": "../../node_modules/@iconify-icons/fa-solid/plus.js",
+      "file": "@iconify-icons_fa-solid_plus.js",
+      "fileHash": "8fff5c65",
+      "needsInterop": false
+    },
+    "idb": {
+      "src": "../../node_modules/idb/build/index.js",
+      "file": "idb.js",
+      "fileHash": "49d97239",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-M6MDG3G5": {
+      "file": "chunk-M6MDG3G5.js"
+    },
+    "chunk-5HNGYYSW": {
+      "file": "chunk-5HNGYYSW.js"
+    },
+    "chunk-TVFQMRVC": {
+      "file": "chunk-TVFQMRVC.js"
+    },
+    "chunk-G3PMV62Z": {
+      "file": "chunk-G3PMV62Z.js"
+    }
+  }
 }

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import type { TaskFormData } from "../types/taskFormData";
 import { db } from "../lib/idb";
+import type { TaskFormProps } from "../types/taskFormData";
+
 const emojiOptions = [
   "😀",
   "📚",
@@ -14,7 +16,7 @@ const emojiOptions = [
   "🎵",
 ];
 
-const TaskForm: React.FC = () => {
+const TaskForm: React.FC<TaskFormProps> = ({ showForm, setShowForm }) => {
   const [form, setForm] = useState<TaskFormData>({
     title: "",
     description: "",
@@ -70,6 +72,7 @@ const TaskForm: React.FC = () => {
       if (key) {
         const savedTask = await db.get("notes", key);
         console.log(savedTask);
+        setShowForm(!showForm);
       } else {
         console.log("db creation failed");
       }

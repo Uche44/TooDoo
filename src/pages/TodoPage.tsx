@@ -5,10 +5,12 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import faHamburgerIcon from "@iconify-icons/fa-solid/hamburger";
 import faPlus from "@iconify-icons/fa-solid/plus";
 import CategoryDisplay from "../components/CategoryDisplay";
+import Tasks from "./Tasks";
 
 const TodoPage: React.FC = () => {
   const [name, setName] = useState<string>("");
   const [showForm, setShowForm] = useState<boolean>(false);
+const [showNav, setShowNav] = useState<boolean>(false)
 
   useEffect(() => {
     const fetchUserName = async () => {
@@ -27,7 +29,12 @@ const TodoPage: React.FC = () => {
 
   return (
     <section className="w-full min-h-screen flex flex-col items-center px-4 py-7">
-      {showForm && <TaskForm />}
+      {showForm && (
+        <TaskForm
+          showForm={showForm}
+          setShowForm={setShowForm}
+        />
+      )}
       {!showForm && (
         <>
           <div className="h-fit w-full max-w-[600px]">
@@ -50,12 +57,13 @@ const TodoPage: React.FC = () => {
           >
             <Icon
               icon={faPlus}
-              className="text-2xl "
+              className="text-xl "
             />
           </button>
         </>
       )}
       <CategoryDisplay />
+      <Tasks />
     </section>
   );
 };
