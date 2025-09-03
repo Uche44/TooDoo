@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
 import { db } from "../lib/idb";
-import type { Task } from "../types/taskFormData";
 
-const Tasks: React.FC = () => {
-  const [tasks, setTasks] = useState<Task[]>([]);
+import type { TasksProps } from "../types/taskFormData";
+
+const Tasks: React.FC<TasksProps> = ({
+  selectedCategory,
+  setSelectedCategory,
+  tasks,
+  setTasks,
+  // onCategoryChange,
+}) => {
   const [checked, setChecked] = useState<{ [key: number]: boolean }>({});
 
   useEffect(() => {
@@ -12,7 +18,12 @@ const Tasks: React.FC = () => {
       setTasks(allTasks);
     };
     fetchTasks();
-  }, []);
+  }, [tasks]);
+
+  const filteredTasks =
+    selectedCategory === ""
+      ? tasks
+      : tasks.filter((task) => task.category === selectedCategory);
 
   const handleCheck = (id: number | undefined) => {
     if (id === undefined) return;
@@ -23,6 +34,8 @@ const Tasks: React.FC = () => {
     if (id === undefined) return;
     await db.delete("notes", id);
     setTasks((prev) => prev.filter((task) => task.id !== id));
+    // onCategoryChange();
+    setSelectedCategory("");
     setChecked((prev) => {
       const newChecked = { ...prev };
       delete newChecked[id];
@@ -35,7 +48,7 @@ const Tasks: React.FC = () => {
       {tasks.length === 0 && (
         <p className="text-center text-gray-400">No tasks found.</p>
       )}
-      {tasks.map((task) => (
+      {filteredTasks.map((task) => (
         <div
           key={task.id}
           className="flex items-center justify-between bg-white rounded shadow p-3 gap-2"

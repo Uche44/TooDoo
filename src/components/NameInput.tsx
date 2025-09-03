@@ -12,7 +12,7 @@ const NameInput = () => {
     }
   }, []);
 
-  const [userName, setUserName] = useState<string>("" );
+  const [userName, setUserName] = useState<string>("");
   const [error, setError] = useState("");
 
   const validate = () => {
@@ -42,21 +42,23 @@ const NameInput = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full h-screen px-6 py-8 flex flex-col items-center justify-center"
+      className="w-full h-screen px-6 py-8 flex flex-col items-center justify-center md:flex-row gap-4"
     >
-      <h2 className="text-3xl mb-6">Enter your name, ml 😊</h2>
+      <h2 className="text-3xl mb-6 absolute top-[36%]">
+        Enter your name, ml 😊
+      </h2>
 
       <input
         type="text"
         value={userName}
         onChange={(e) => setUserName(e.target.value)}
-        className="bg-white px-4 py-4 w-full rounded-[5px]"
+        className="bg-white px-4 py-4 w-full rounded-[5px] md:w-[70%]"
         placeholder="Username"
       />
       {error && <p className="text-red-500 mb-2">{error}</p>}
       <button
         type="submit"
-        className="px-7 py-2 font-semibold text-white bg-[#eeba37] mt-4 rounded-[5px]"
+        className="px-7 py-2 font-semibold text-white bg-[#eeba37] mt-4 rounded-[5px] cursor-pointer"
       >
         Jump in
       </button>
