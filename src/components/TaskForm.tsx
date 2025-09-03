@@ -16,7 +16,12 @@ const emojiOptions = [
   "🎵",
 ];
 
-const TaskForm: React.FC<TaskFormProps> = ({ showForm, setShowForm }) => {
+const TaskForm: React.FC<TaskFormProps> = ({
+  showForm,
+  setShowForm,
+  // tasks,
+  setTasks,
+}) => {
   const [form, setForm] = useState<TaskFormData>({
     title: "",
     description: "",
@@ -71,7 +76,8 @@ const TaskForm: React.FC<TaskFormProps> = ({ showForm, setShowForm }) => {
       });
       if (key) {
         const savedTask = await db.get("notes", key);
-        console.log(savedTask);
+        // console.log(savedTask);
+        setTasks((prev) => [...prev, savedTask]);
         setShowForm(!showForm);
       } else {
         console.log("db creation failed");
@@ -88,7 +94,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ showForm, setShowForm }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full max-w-md mx-auto bg-white p-6 rounded-lg shadow-md flex flex-col gap-4 mt-8"
+      className="fixed top-1/2 left-1/2 w-full max-w-md bg-white p-6 rounded-lg shadow-md flex flex-col gap-4 -translate-x-1/2 -translate-y-1/2"
     >
       <h2 className="text-2xl font-bold mb-2 text-center">Create a Task</h2>
       <input

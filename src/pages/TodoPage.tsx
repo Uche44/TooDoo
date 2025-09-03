@@ -6,11 +6,19 @@ import faHamburgerIcon from "@iconify-icons/fa-solid/hamburger";
 import faPlus from "@iconify-icons/fa-solid/plus";
 import CategoryDisplay from "../components/CategoryDisplay";
 import Tasks from "./Tasks";
+import type { Task } from "../types/taskFormData";
 
 const TodoPage: React.FC = () => {
   const [name, setName] = useState<string>("");
   const [showForm, setShowForm] = useState<boolean>(false);
-const [showNav, setShowNav] = useState<boolean>(false)
+
+// const [showNav, setShowNav] = useState<boolean>(false);
+
+const [selectedCategory, setSelectedCategory] = useState<string>("");
+
+const [refreshCategories, setRefreshCategories] = useState(false);
+
+const [tasks, setTasks] = useState<Task[]>([]);
 
   useEffect(() => {
     const fetchUserName = async () => {
@@ -27,12 +35,15 @@ const [showNav, setShowNav] = useState<boolean>(false)
     fetchUserName();
   }, []);
 
+
   return (
     <section className="w-full min-h-screen flex flex-col items-center px-4 py-7">
       {showForm && (
         <TaskForm
           showForm={showForm}
           setShowForm={setShowForm}
+          tasks={tasks}
+          setTasks={setTasks}
         />
       )}
       {!showForm && (
@@ -46,7 +57,16 @@ const [showNav, setShowNav] = useState<boolean>(false)
             <div className="w-full h-[3rem] flex items-center justify-between">
               <div className="text w-fit h-fit">
                 <h2 className="text-3xl font-bold">Hello {name}</h2>
-                <p className="text-xl font-medium">You have 0 tasks</p>
+                <div className="text-xl font-medium">
+                  {tasks.length === 0 ? (
+                    <p>You have no tasks yet</p>
+                  ) : (
+                    <p>
+                      You have {tasks.length}{" "}
+                      {tasks.length === 1 ? "task" : "tasks"}
+                    </p>
+                  )}
+                </div>
               </div>
               <p className="text-[4.5rem] pb-8">👧</p>
             </div>
@@ -62,8 +82,18 @@ const [showNav, setShowNav] = useState<boolean>(false)
           </button>
         </>
       )}
-      <CategoryDisplay />
-      <Tasks />
+      <CategoryDisplay
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+        refresh={refreshCategories}
+      />
+      <Tasks
+        tasks={tasks}
+        setTasks={setTasks}
+        setSelectedCategory={setSelectedCategory}
+        selectedCategory={selectedCategory}
+        onCategoryChange={() => setRefreshCategories((v) => !v)}
+      />
     </section>
   );
 };

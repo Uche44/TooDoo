@@ -5,17 +5,17 @@ import { NavLink } from "react-router";
 import "../styles/welcome.css";
 const Welcome: React.FC = () => {
   return (
-    <section className="container">
+    <section className="container ">
       <img
         src="/nobg.png"
         alt=""
-        className="w-[100%] h-[60vh] mt-16 mb-10 "
+        className="w-[100%] h-[60vh] md:w-[40%] mt-16 mb-10 "
       />
     
 
       <NavLink
         to="/login"
-        className="nav"
+        className="nav w-[80%] md:w-[60%]"
       >
         Get Started
       </NavLink>
