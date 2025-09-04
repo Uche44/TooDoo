@@ -22,19 +22,19 @@ export interface Task {
   emoji: string;
 }
 
-// props to category display buttons for task component
+// props for category display buttons for task component
 export interface Props {
   selectedCategory: string;
   setSelectedCategory: (cat: string) => void;
-  refresh: boolean;
+  // refresh: boolean;
 }
 
 
-// props to category display buttons for task component
+// props for category display buttons for task component
 export interface TasksProps {
   selectedCategory: string;
   setSelectedCategory: (cat: string) => void;
-  onCategoryChange: () => void;
+  // onCategoryChange: () => void;
   tasks: Task[];
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
 }
