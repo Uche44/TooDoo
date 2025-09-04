@@ -3,8 +3,10 @@ import { useState, useEffect } from "react";
 import { db } from "../lib/idb";
 import type { Props } from "../types/taskFormData";
 
-
-const CategoryDisplay: React.FC<Props> = ({selectedCategory, setSelectedCategory, refresh}) => {
+const CategoryDisplay: React.FC<Props> = ({
+  selectedCategory,
+  setSelectedCategory,
+}) => {
   const [categories, setCategories] = useState<string[]>([]);
 
   useEffect(() => {

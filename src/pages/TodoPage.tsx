@@ -16,7 +16,7 @@ const TodoPage: React.FC = () => {
 
 const [selectedCategory, setSelectedCategory] = useState<string>("");
 
-const [refreshCategories, setRefreshCategories] = useState(false);
+// const [refreshCategories, setRefreshCategories] = useState(false);
 
 const [tasks, setTasks] = useState<Task[]>([]);
 
@@ -85,14 +85,14 @@ const [tasks, setTasks] = useState<Task[]>([]);
       <CategoryDisplay
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
-        refresh={refreshCategories}
+        // refresh={refreshCategories}
       />
       <Tasks
         tasks={tasks}
         setTasks={setTasks}
         setSelectedCategory={setSelectedCategory}
         selectedCategory={selectedCategory}
-        onCategoryChange={() => setRefreshCategories((v) => !v)}
+        // onCategoryChange={() => setRefreshCategories((v) => !v)}
       />
     </section>
   );
